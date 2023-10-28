@@ -1,0 +1,13 @@
+{
+    "criteria": {
+      "requirement": {
+        "trigger": "minecraft:recipe_crafted",
+        "conditions": {
+          "recipe_id": "vsc:custom_crafter"
+        }
+      }
+    },
+    "rewards": {
+      "function": "vsc:craft_customcrafter"
+    }
+  }
