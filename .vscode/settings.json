@@ -1,0 +1,16 @@
+{
+  "datapack.lint.strictFunctionCheck": ["warning", true],
+  "datapack.lint.strictBlockTagCheck": ["warning", true],
+  "datapack.lint.strictTagCheck": ["warning", true],
+  "datapack.lint.strictStorageCheck": ["warning", true],
+  "datapack.lint.strictScoreHolderCheck": ["warning", true],
+  "datapack.lint.strictRecipeCheck": ["warning", true],
+  "datapack.lint.strictPredicateCheck": ["warning", true],
+  "datapack.lint.strictObjectiveCheck": ["warning", true],
+  "datapack.lint.strictLootTableCheck": ["warning", true],
+  "datapack.lint.strictItemTagCheck": ["warning", true],
+  "datapack.lint.strictFunctionTagCheck": ["warning", true],
+  "datapack.lint.strictEntityTypeTagCheck": ["warning", true],
+  "datapack.lint.strictAdvancementCheck": ["warning", true],
+  "datapack.env.defaultVisibility": "internal",
+}
