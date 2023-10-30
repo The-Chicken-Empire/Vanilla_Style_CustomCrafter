@@ -3,7 +3,7 @@
 # @within vsc_core:break/check
 
 # カスタム作業台からドロップしたアイテムを全て削除
-kill @e[type=item,distance=..1]
+execute as @e[type=item,distance=..1] unless data entity @s Thrower run kill @s
 
 # 表示していたレシピの要求素材データを持ってくる
 $data modify storage vsc_core:main tmp.require set from storage vsc_core:main recipes[$(recipeID)].require
