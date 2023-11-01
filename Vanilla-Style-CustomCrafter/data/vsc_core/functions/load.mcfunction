@@ -13,7 +13,7 @@ function vsc_core:init/frame
 function vsc_core:init/set_gui_storage
 
 # 初期化終了メッセージ
-tellraw @a {"text": "カスタムレシピの初期化が完了しました"}
+tellraw @a {"text": "カスタムレシピの初期化が完了"}
 
 
 # ------------------------------ 宣言を行う部分 ------------------------------#
