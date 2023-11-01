@@ -6,7 +6,7 @@
 data modify storage vsc_core:main tmp.data.Items set from block ~ ~ ~ Items
 
 # Itemsからguiアイテム部分を削除する。また、その時の削除結果を保存する
-execute store result score VSC.datasize VSC.main run data remove storage vsc_core:main tmp.data.Items[{tag:{VSC.guiitem:1}}] 
+execute store result score VSC.datasize VSC.main run data remove storage vsc_core:main tmp.data.Items[{tag:{vsc_guiitem:1}}] 
 
 # 完成品スロットのデータを取得し、Itemsから削除
 data modify storage vsc_core:main tmp.data.result set from storage vsc_core:main tmp.data.Items[{Slot:16b}]

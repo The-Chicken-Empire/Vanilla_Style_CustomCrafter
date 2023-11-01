@@ -9,6 +9,6 @@ execute as @e[type=minecraft:armor_stand,tag=VSC.core,tag=!VSC.placed] at @s ali
 execute as @e[type=minecraft:armor_stand,tag=VSC.core,tag=VSC.placed] at @s run function vsc_core:check
 
 # GUI表示用アイテムを消す
-execute as @a[tag=!VSC.op] at @s run clear @s #vsc_core:guiitems{VSC.guiitem:1}
-kill @e[type=item,nbt={Item:{tag:{VSC.guiitem:1}}}]
+execute as @a[tag=!VSC.op] at @s run clear @s #vsc_core:all{vsc_guiitem:1}
+kill @e[type=item,nbt={Item:{tag:{vsc_guiitem:1}}}]
 
