@@ -4,16 +4,17 @@
 
 # ------------------------------ 処理を行う部分 ------------------------------#
 
+#スコアの初期化
 function vsc_core:init/score
 
 # ストレージの初期化
-
 function vsc_core:init/recipe
 function vsc_core:init/frame
 function vsc_core:init/set_gui_storage
+execute unless data storage vsc_core:main items run data modify storage vsc_core:main items set value []
 
 # 初期化終了メッセージ
-tellraw @a {"text": "カスタムレシピの初期化が完了"}
+tellraw @a {"text": "カスタムレシピの初期化が完了しました"}
 
 
 # ------------------------------ 宣言を行う部分 ------------------------------#
@@ -47,6 +48,11 @@ tellraw @a {"text": "カスタムレシピの初期化が完了"}
 #define tag VSC.op
 
 # -------------------- スコアホルダー --------------------#
+
+#> 
+# @internal
+  #define score_holder VSC.NUM_PAGE
+  #define score_holder VSC.NUM_RECIPES
 
 #>
 # 定数

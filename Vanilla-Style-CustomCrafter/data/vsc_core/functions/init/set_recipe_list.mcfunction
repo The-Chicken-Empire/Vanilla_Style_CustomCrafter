@@ -13,10 +13,10 @@ scoreboard players operation VSC.slot_num VSC.main %= #VSC.15 VSC.main
 scoreboard players add VSC.page_num VSC.main 1
 
 # 配置場所が0番ならページを追加
-execute if score VSC.slot_num VSC.main matches 0 if score VSC.page_num VSC.main matches 1 if score VSC.num_page VSC.main matches 1 run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[1]
-execute if score VSC.slot_num VSC.main matches 0 if score VSC.page_num VSC.main matches 1 unless score VSC.num_page VSC.main matches 1 run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[2]
-execute if score VSC.slot_num VSC.main matches 0 unless score VSC.page_num VSC.main matches 1 unless score VSC.page_num VSC.main = VSC.num_page VSC.main run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[3]
-execute if score VSC.slot_num VSC.main matches 0 unless score VSC.page_num VSC.main matches 1 if score VSC.page_num VSC.main = VSC.num_page VSC.main run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[4]
+execute if score VSC.slot_num VSC.main matches 0 if score VSC.page_num VSC.main matches 1 if score VSC.NUM_PAGE VSC.main matches 1 run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[1]
+execute if score VSC.slot_num VSC.main matches 0 if score VSC.page_num VSC.main matches 1 unless score VSC.NUM_PAGE VSC.main matches 1 run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[2]
+execute if score VSC.slot_num VSC.main matches 0 unless score VSC.page_num VSC.main matches 1 unless score VSC.page_num VSC.main = VSC.NUM_PAGE VSC.main run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[3]
+execute if score VSC.slot_num VSC.main matches 0 unless score VSC.page_num VSC.main matches 1 if score VSC.page_num VSC.main = VSC.NUM_PAGE VSC.main run data modify storage vsc_core:main gui.recipe_list append from storage vsc_core:main gui.frame[4]
 
 # カスタム作業台内部でのスロット番号を求める
 scoreboard players operation VSC.slot_tmp VSC.main = VSC.slot_num VSC.main
@@ -38,7 +38,7 @@ scoreboard players reset VSC.slot_tmp VSC.main
 # ループ用処理部分
 data remove storage vsc_core:main tmp.recipe_list[0]
 scoreboard players add VSC.count VSC.main 1
-execute if score VSC.count VSC.main < VSC.num_recipes VSC.main run function vsc_core:init/set_recipe_list
+execute if score VSC.count VSC.main < VSC.NUM_RECIPES VSC.main run function vsc_core:init/set_recipe_list
 
 #> 
 # 

@@ -14,5 +14,5 @@ data modify storage vsc_core:main gui.recipes[-1][{}].tag.vsc_guiitem set value 
 # ループ用処理部分
 data remove storage vsc_core:main tmp.recipes[0]
 scoreboard players add VSC.count VSC.main 1
-execute if score VSC.count VSC.main < VSC.num_recipes VSC.main run function vsc_core:init/set_recipe_individual
+execute if score VSC.count VSC.main < VSC.NUM_RECIPES VSC.main run function vsc_core:init/set_recipe_individual
 

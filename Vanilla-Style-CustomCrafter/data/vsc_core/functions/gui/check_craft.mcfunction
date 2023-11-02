@@ -1,6 +1,8 @@
-#> vsc_core:gui/check
+#> vsc_core:gui/check_craft
 #
-# @within vsc_core:check
+# @within vsc_core:gui/separate_by_mode
+
+# 操作関連の処理は先にしているので、レシピ画面移動アイテムを触った場合のことは考えない
 
 # カスタム作業台の内部インベントリのデータをコピー
 data modify storage vsc_core:main tmp.data.Items set from block ~ ~ ~ Items

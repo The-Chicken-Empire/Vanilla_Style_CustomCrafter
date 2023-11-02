@@ -11,14 +11,18 @@ scoreboard objectives add VSC.main dummy
 # @internal
 scoreboard objectives add VSC.page dummy
 #>
+# 現在カスタム作業台のモード
+# @internal
+scoreboard objectives add VSC.mode dummy
+#>
 # レシピ表示モードで何ページ目を表示しているか
 # @internal
-scoreboard objectives add VSC.recipe_pageID dummy
+scoreboard objectives add VSC.recipe_recipeID dummy
 #>
 # クラフトモードにおいて現在カスタム作業台が表示しているレシピのインデックス。  
 # 設定されていない場合はレシピ表示を行っていない。
 # @internal
-scoreboard objectives add VSC.recipeID dummy
+scoreboard objectives add VSC.craft_recipeID dummy
 
 # 定数スコアを設定
 scoreboard players set #VSC.15 VSC.main 15

@@ -1,6 +1,6 @@
 #> vsc_core:gui/search
 #
-# @within vsc_core:gui/check
+# @within vsc_core:gui/check_craft
 
 # Itemsの内容をコピー
 data modify storage vsc_core:main tmp.1 set from storage vsc_core:main tmp.data.Items
