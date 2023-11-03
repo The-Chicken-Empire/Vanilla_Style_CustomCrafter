@@ -13,6 +13,8 @@ execute if block ~ ~ ~ air run setblock ~ ~ ~ barrel[facing=up]{CustomName:'{"te
 # guiを設定
 execute at @s run data modify block ~ ~ ~ Items set from storage vsc_core:main gui.frame[0]
 
-# 設置処理完了タグ
+# 設置処理完了タグやスコア設定
 tag @s add VSC.placed
 scoreboard players set @s VSC.mode 0 
+scoreboard players set @s VSC.frame 0 
+scoreboard players set @s VSC.page 0 

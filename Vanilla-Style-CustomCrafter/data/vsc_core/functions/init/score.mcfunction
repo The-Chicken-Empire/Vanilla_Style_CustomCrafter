@@ -7,7 +7,11 @@
 # @internal
 scoreboard objectives add VSC.main dummy
 #>
-# 現在カスタム作業台が表示しているページ。
+# 現在カスタム作業台が表示しているページのフレーム番号。
+# @internal
+scoreboard objectives add VSC.frame dummy
+#>
+# 現在カスタム作業台が表示しているページの番号
 # @internal
 scoreboard objectives add VSC.page dummy
 #>
