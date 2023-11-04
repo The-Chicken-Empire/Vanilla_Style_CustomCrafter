@@ -22,6 +22,9 @@ execute unless score VSC.datasize VSC.main matches 17 run function vsc_core:gui/
 # tmp.1スコアを削除
 data remove storage vsc_core:main tmp.1
 
+# スコアをリセット
+scoreboard players reset VSC.datasize VSC.main
+
 # スコアホルダーの定義
 #> 
 # @private

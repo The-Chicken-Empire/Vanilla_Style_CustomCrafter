@@ -24,6 +24,9 @@ scoreboard players reset VSC.tmp VSC.main
 # ストレージリセット
 data remove storage vsc_core:main tmp
 
+# ページ遷移をしたことを示すスコアを1に
+scoreboard players set VSC.page_transition VSC.main 1
+
 #>
 # @private
 #define score_holder VSC.tmp

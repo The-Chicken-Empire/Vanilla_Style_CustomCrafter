@@ -16,5 +16,9 @@ scoreboard players add @s VSC.page 1
 execute unless score @s VSC.page = VSC.NUM_PAGE VSC.main run scoreboard players set @s VSC.frame 3
 execute if score @s VSC.page = VSC.NUM_PAGE VSC.main run scoreboard players set @s VSC.frame 4
 
+# ページ遷移をしたことを示すスコアを1に
+scoreboard players set VSC.page_transition VSC.main 1
+
+
 # ストレージリセット
 data remove storage vsc_core:main tmp

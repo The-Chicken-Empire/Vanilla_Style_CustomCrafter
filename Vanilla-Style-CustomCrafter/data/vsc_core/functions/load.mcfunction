@@ -15,6 +15,7 @@ execute unless data storage vsc_core:main items run data modify storage vsc_core
 
 # 開かれているカスタム作業台のページを一旦クラフト画面に戻す。(レシピが変更されるとおそらくバグるので)
 execute as @e[type=minecraft:armor_stand,tag=VSC.core,tag=VSC.placed] at @s run function vsc_core:mode/page_transition/craft
+scoreboard players reset VSC.page_transition VSC.main
 
 # 初期化終了メッセージ
 tellraw @a {"text": "カスタムレシピの初期化が完了しました"}

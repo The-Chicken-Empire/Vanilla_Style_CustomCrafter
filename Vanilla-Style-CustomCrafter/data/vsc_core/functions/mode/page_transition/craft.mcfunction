@@ -9,9 +9,15 @@ data modify storage vsc_core:main tmp.UUID set from entity @s UUID
 function vsc_core:mode/return_item with storage vsc_core:main tmp
 scoreboard players set @s VSC.mode 0
 scoreboard players set @s VSC.frame 0
+scoreboard players reset @s VSC.page
+scoreboard players reset @s VSC.recipe_recipeIndex
 
 # クラフトモードに入る前に保存していたアイテムを戻す
 function vsc_core:mode/recovery_items with storage vsc_core:main tmp
+
+# ページ遷移をしたことを示すスコアを1に
+scoreboard players set VSC.page_transition VSC.main 1
+
 
 # ストレージリセット
 data remove storage vsc_core:main tmp

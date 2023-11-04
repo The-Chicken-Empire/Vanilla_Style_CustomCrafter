@@ -15,6 +15,11 @@ scoreboard players set @s VSC.mode 1
 scoreboard players set @s VSC.page 1
 execute if score @s VSC.page = VSC.NUM_PAGE VSC.main run scoreboard players set @s VSC.frame 1
 execute unless score @s VSC.page = VSC.NUM_PAGE VSC.main run scoreboard players set @s VSC.frame 2
+scoreboard players reset @s VSC.recipe_recipeIndex
+
+# ページ遷移をしたことを示すスコアを1に
+scoreboard players set VSC.page_transition VSC.main 1
+
 
 # GUIを切り替える
 data modify block ~ ~ ~ Items set from storage vsc_core:main gui.recipe_list[0]

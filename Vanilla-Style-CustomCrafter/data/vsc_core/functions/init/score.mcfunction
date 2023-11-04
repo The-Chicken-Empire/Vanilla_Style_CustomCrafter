@@ -19,9 +19,9 @@ scoreboard objectives add VSC.page dummy
 # @internal
 scoreboard objectives add VSC.mode dummy
 #>
-# レシピ表示モードで何ページ目を表示しているか
+# レシピ表示モードで表示しているレシピのindex
 # @internal
-scoreboard objectives add VSC.recipe_recipeID dummy
+scoreboard objectives add VSC.recipe_recipeIndex dummy
 #>
 # クラフトモードにおいて現在カスタム作業台が表示しているレシピのインデックス。  
 # 設定されていない場合はレシピ表示を行っていない。
