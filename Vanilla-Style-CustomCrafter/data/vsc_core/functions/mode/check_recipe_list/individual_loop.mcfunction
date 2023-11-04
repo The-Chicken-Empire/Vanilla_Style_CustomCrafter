@@ -14,7 +14,7 @@ scoreboard players operation VSC.slot_num VSC.main += VSC.slot_tmp VSC.main
 scoreboard players add VSC.slot_num VSC.main 2
 
 # スロットをチェック
-execute store result storage vsc_core:main tmp.slot_num int 1 run scoreboard players get VSC.slot_num VSC.main
+execute store result storage vsc_core:main tmp.slot int 1 run scoreboard players get VSC.slot_num VSC.main
 execute store result storage vsc_core:main tmp.index int 1 run scoreboard players get VSC.index VSC.main
 function vsc_core:mode/check_recipe_list/check_slot with storage vsc_core:main tmp
 
