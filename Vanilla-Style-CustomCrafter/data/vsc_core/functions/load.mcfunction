@@ -4,25 +4,21 @@
 
 # ------------------------------ 処理を行う部分 ------------------------------#
 
-#>
-# 主な操作に使用するスコア
-# @internal
-scoreboard objectives add VSC.main dummy
-#>
-# 現在カスタム作業台が表示しているレシピのインデックス。  
-# 設定されていない場合はレシピ表示を行っていない。
-# @internal
-scoreboard objectives add VSC.recipeID dummy
+#スコアの初期化
+function vsc_core:init/score
 
-data modify storage vsc_core:main recipes set value []
+# ストレージの初期化
+function vsc_core:init/recipe
+function vsc_core:init/frame
+function vsc_core:init/set_gui_storage
+execute unless data storage vsc_core:main items run data modify storage vsc_core:main items set value []
 
-data modify storage vsc_core:main recipes append value {require:[{Slot: 2b, id: "minecraft:redstone", Count: 1b}, {Slot: 3b, id: "minecraft:redstone", Count: 1b}, {Slot: 10b, id: "minecraft:redstone", Count: 1b}, {Slot: 11b, id: "minecraft:redstone", Count: 1b}, {Slot: 12b, id: "minecraft:redstone", Count: 1b},{Slot: 19b, id: "minecraft:redstone", Count: 1b}, {Slot: 20b, id: "minecraft:redstone", Count: 1b}, {Slot: 21b, id: "minecraft:redstone", Count: 1b}],result:{Slot: 16b, id: "minecraft:armor_stand", Count: 1b, tag: {EntityTag: {NoGravity: 1b, Silent: 1b, Invulnerable: 1b, Marker: 1b, Invisible: 1b, Tags: ["VSC.core"]}, CustomModelData: 1, display: {Name: '{"text":"Custom Crafting Table","italic":false}'}}}}
+# 開かれているカスタム作業台のページを一旦クラフト画面に戻す。(レシピが変更されるとおそらくバグるので)
+execute as @e[type=minecraft:armor_stand,tag=VSC.core,tag=VSC.placed] at @s run function vsc_core:mode/page_transition/craft
+scoreboard players reset VSC.page_transition VSC.main
 
-data modify storage vsc_core:main recipes append value {require:[{Slot: 3b, id: "minecraft:diamond", Count: 1b}, {Slot: 11b, id: "minecraft:diamond", Count: 1b}, {Slot: 19b, id: "minecraft:stick", Count: 1b}],result:{Slot: 16b, id: "minecraft:diamond_sword", Count: 1b, tag: {Damage: 0}}}
-
-data modify storage vsc_core:main recipes append value {require:[{Slot: 2b, id: "minecraft:diamond", Count: 1b},{Slot: 3b, id: "minecraft:diamond", Count: 1b}, {Slot: 11b, id: "minecraft:diamond", Count: 1b}, {Slot: 19b, id: "minecraft:stick", Count: 1b}],result:{Slot: 16b, id: "minecraft:diamond_sword", Count: 1b, tag: {Damage: 0,Enchantments:[{id:"minecraft:sharpness",lvl:5s}]}}}
-
-data modify storage vsc_core:main gui set value [{Slot: 0b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 4b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 5b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 6b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 7b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 8b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 9b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 13b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 14b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 2, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 15b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 17b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 18b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 22b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 23b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 24b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 25b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}, {Slot: 26b, id: "minecraft:black_stained_glass_pane", Count: 1b, tag: {CustomModelData: 1, VSC.guiitem: 1, display: {Name: '{"text":" "}'}}}]
+# 初期化終了メッセージ
+tellraw @a {"text": "カスタムレシピの初期化が完了しました"}
 
 
 # ------------------------------ 宣言を行う部分 ------------------------------#
@@ -57,3 +53,14 @@ data modify storage vsc_core:main gui set value [{Slot: 0b, id: "minecraft:black
 
 # -------------------- スコアホルダー --------------------#
 
+#> 
+# @internal
+  #define score_holder VSC.NUM_PAGE
+  #define score_holder VSC.NUM_RECIPES
+
+#>
+# 定数
+# @internal
+  #define score_holder #VSC.15
+  #define score_holder #VSC.9
+  #define score_holder #VSC.5

@@ -9,5 +9,5 @@ execute if data storage vsc_core:main tmp.data.result run function vsc_core:craf
 data modify block ~ ~ ~ Items append from storage vsc_core:main tmp.recipes[0].result
 
 # 表示しているレシピのIDを記録する
-scoreboard players operation @s VSC.recipeID = VSC.count VSC.main
+scoreboard players operation @s VSC.craft_recipeID = VSC.count VSC.main
 
