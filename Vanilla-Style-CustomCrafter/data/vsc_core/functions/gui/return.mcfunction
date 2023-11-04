@@ -9,7 +9,7 @@ tag @e[type=item,tag=VSC.return_item,limit=1,distance=..1,sort=nearest] remove V
 
 # ストレージから該当部分を削除
 data remove storage vsc_core:main tmp.1[0]
-$data remove storage vsc_core:main tmp.data.Items[{Slot:$(Slot)b}]
+$execute if score @s VSC.mode matches 0 run data remove storage vsc_core:main tmp.data.Items[{Slot:$(Slot)b}]
 
 #ループ処理用の操作
 scoreboard players add VSC.count VSC.main 1

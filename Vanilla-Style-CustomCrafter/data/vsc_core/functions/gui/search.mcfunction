@@ -24,8 +24,3 @@ execute if score VSC.count VSC.main < VSC.loop VSC.main run function vsc_core:gu
 # GUI部分を上書きして元に戻す 
 data modify block ~ ~ ~ Items append from storage vsc_core:main gui.frame[0][{}]
 
-# スコアホルダー定義
-#>
-# @within vsc_core:gui/*
-  #define score_holder VSC.loop
-  #define score_holder VSC.count
