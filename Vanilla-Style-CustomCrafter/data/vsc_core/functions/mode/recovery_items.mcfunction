@@ -1,6 +1,7 @@
 #> vsc_core:mode/recovery_items
 #
 # @within vsc_core:mode/**
+# @within vsc_core:close
 
 # アイテムを戻す
 $data modify block ~ ~ ~ Items set from storage vsc_core:main items[{UUID:$(UUID)}].items

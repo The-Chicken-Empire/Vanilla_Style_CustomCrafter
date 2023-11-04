@@ -6,6 +6,7 @@
 execute if block ~ ~ ~ minecraft:barrel[open=true] run data modify block ~ ~ ~ Lock set value "aaaaaaaaa"
 execute if block ~ ~ ~ minecraft:barrel[open=false] run data remove block ~ ~ ~ Lock
 
+
 # カスタム作業台の下にホッパーやホッパー付きトロッコがあった場合の処理
 execute positioned ~ ~-1 ~ if block ~ ~ ~ hopper run function vsc_core:hopper/break_hopper
 execute positioned ~ ~-1 ~ as @e[type=hopper_minecart,distance=..1] run function vsc_core:hopper/break_hopper_minecart
