@@ -8,17 +8,18 @@
 function vsc_core:init/score
 
 # ストレージの初期化
-function vsc_core:init/recipe
-function vsc_core:init/frame
-function vsc_core:init/set_gui_storage
-execute unless data storage vsc_core:main items run data modify storage vsc_core:main items set value []
+  function vsc_core:init/recipe
+  function vsc_core:init/recipe_without_count
+  function vsc_core:init/frame
+  function vsc_core:init/set_gui_storage
+  execute unless data storage vsc_core:main items run data modify storage vsc_core:main items set value []
 
 # 開かれているカスタム作業台のページを一旦クラフト画面に戻す。(レシピが変更されるとおそらくバグるので)
-execute as @e[type=minecraft:armor_stand,tag=VSC.core,tag=VSC.placed] at @s run function vsc_core:mode/page_transition/craft
-scoreboard players reset VSC.page_transition VSC.main
+  execute as @e[type=minecraft:armor_stand,tag=VSC.core,tag=VSC.placed] at @s run function vsc_core:mode/page_transition/craft
+  scoreboard players reset VSC.page_transition VSC.main
 
 # 初期化終了メッセージ
-tellraw @a {"text": "カスタムレシピの初期化が完了しました"}
+  tellraw @a {"text": "カスタムレシピの初期化が完了しました"}
 
 
 # ------------------------------ 宣言を行う部分 ------------------------------#
@@ -30,26 +31,34 @@ tellraw @a {"text": "カスタムレシピの初期化が完了しました"}
 # vsc_core:main recipes でレシピのリストにアクセス
 # vsc_core:main tmp に一時的なストレージを格納
 # @internal
-#define storage vsc_core:main
+  #define storage vsc_core:main
 
 # -------------------- エンティティタグ --------------------#
 
 #>
 # カスタム作業台管理用防具立てにつける
 # @internal
-#define tag VSC.core
+  #define tag VSC.core
 
 #>
 # カスタム作業台管理用の防具立ての設置処理済みであることを示す
 # @within vsc_core:*
 # @within vsc_core:break/**
 # @within vsc_core:place/**
-#define tag VSC.placed
+  #define tag VSC.placed
+
+#>
+# カスタム作業台がそのtickでクラフトが行われたことを示す
+# @within vsc_core:check
+# @within vsc_core:craft/**
+  #define tag VSC.picked_up1
+  #define tag VSC.picked_up2
+
 
 #>
 # デバッグ時につけるタグ
 # @internal
-#define tag VSC.op
+  #define tag VSC.op
 
 # -------------------- スコアホルダー --------------------#
 
