@@ -10,7 +10,7 @@ execute unless score VSC.diff_recipe VSC.main matches 1 run function vsc_core:cr
 
 # ループ処理用
 scoreboard players add VSC.count VSC.main 1
-data remove storage vsc_core:main tmp.recipes_no_count[0].require
+data remove storage vsc_core:main tmp.recipes_no_count[0]
 execute if score VSC.diff_recipe VSC.main matches 1 if score VSC.count VSC.main < VSC.loop VSC.main run function vsc_core:craft/search_recipe_loop
 
 

@@ -8,6 +8,7 @@
 function vsc_core:init/score
 
 # ストレージの初期化
+  function vsc_core:init/init_recipe
   function vsc_core:init/recipe
   function vsc_core:init/recipe_without_count
   function vsc_core:init/frame

@@ -3,6 +3,20 @@
 # @within vsc_core:load
 
 data modify storage vsc_core:main recipes set value []
+summon chest_minecart ~ -100 ~ {NoGravity:1b,Invulnerable:1b,Tags:["VSC.container"]}
 
-data modify storage vsc_core:main recipes append value {require:[{Slot: 2b, id: "minecraft:copper_ingot", Count: 1b}, {Slot: 11b, id: "minecraft:copper_ingot", Count: 1b},{Slot: 20b, id: "minecraft:stick", Count: 1b}],result: {Slot: 16b, id: "minecraft:wooden_sword", Count: 1b, tag: {Damage: 0, AttributeModifiers: [{Amount: 5, Slot: "mainhand", AttributeName: "generic.attack_damage", Operation: 0, UUID: [I; 19804154, -405976390, -1946653434, -497452285], Name: "generic.attack_damage"}, {Amount: 1.5d, Slot: "mainhand", AttributeName: "generic.attack_speed", Operation: 0, UUID: [I; -1436386714, -1813888963, -1633899429, -1472883919], Name: "generic.attack_speed"}], display: {Name: '{"text":"銅の剣"}'}}}}
+execute store result score vsc.loop VSC.main run data get storage vsc_core:main init_recipe
+scoreboard players set vsc.count VSC.main 0
+execute if score vsc.count VSC.main < vsc.loop VSC.main run function vsc_core:init/recipe_loop
 
+kill @e[tag=VSC.container,limit=1,type=chest_minecart]
+
+scoreboard players reset vsc.count VSC.main
+scoreboard players reset vsc.loop VSC.main
+
+#> 
+# @within vsc_core:init/recipe
+# @within vsc_core:init/recipe_loop
+  #define score_holder vsc.loop
+  #define score_holder vsc.count
+  #define tag VSC.container
